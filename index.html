@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loop Line — Toy Railway Builder</title>
+<link rel="stylesheet" href="css/style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <div id="hud">
+    <div id="hud-top">
+      <div id="title-badge">Loop Line</div>
+      <div id="stats">
+        <span id="stat-cargo">Cargo: 0/0</span>
+        <span id="stat-laps">Laps: 0</span>
+        <span id="stat-pieces">Pieces: 0</span>
+      </div>
+    </div>
+
+    <div id="mode-banner"></div>
+
+    <div id="build-panel">
+      <div id="palette"></div>
+      <div id="train-picker">
+        <label>Locomotive
+          <select id="loco-select"></select>
+        </label>
+        <label>Carriage
+          <select id="carriage-select"></select>
+        </label>
+      </div>
+      <div id="build-actions">
+        <button id="btn-undo">Undo (Z)</button>
+        <button id="btn-clear">Clear All</button>
+        <button id="btn-play" disabled>Run Train ▶</button>
+      </div>
+      <div id="hint">Lay track piece by piece — straight ahead, or curve left/right. Close the loop back to the start, then press Run.</div>
+    </div>
+
+    <div id="play-panel" class="hidden">
+      <div id="speed-row">
+        <label>Speed
+          <input id="speed-slider" type="range" min="0.2" max="3" step="0.1" value="1" />
+        </label>
+        <button id="btn-camera">Camera: Free</button>
+        <button id="btn-stop">Stop &amp; Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loading">Loading track kit…</div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
